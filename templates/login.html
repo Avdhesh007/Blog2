@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+<p>Login Page</p>
+
+{% block content %}
+    <h2>Login</h2>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+    </form>
+    <br>
+    <p><strong>--OR--</strong></p>
+    <a href="{% url 'social:begin' 'google-oauth2' %}">Login with google</a>
+    <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+
+{% endblock %}
+</body>
+</html>

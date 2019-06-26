@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UpdateBlog</title>
+</head>
+<body>
+<p>Hello, {{ user.username }}</p><br>
+<form method="post" action="#">
+    {% csrf_token %}
+
+<input type="hidden" name="id" value="{{ records.id }}"/><br>
+<span>Headline:</span><input type="text" name="heading" value="{{ records.heading }}" /><br>
+    <span>Blog:</span><textarea rows="5" cols="50" type="text" name="blog" maxlength="200">{{ records.blog }}</textarea><br>
+    <button type="submit">Update</button>
+
+
+</form>
+
+
+</body>
+</html>

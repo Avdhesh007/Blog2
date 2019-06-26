@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+<p>Welcome to Blogapp</p>
+{% block content %}
+	{% if user.is_authenticated %}
+        <p class="display-4">Hello, {{ user.username }}</p><br>
+
+        <p><a href="http://127.0.0.1:8000/blogapp/logout">logout</a></p>
+        <table border="1">
+        <tr>
+            <th>id</th>
+            <th>date</th>
+            <th>headline</th>
+            <th>action1</th>
+            <th>action2</th>
+        </tr>
+        {% for record in records %}
+            <tr>
+            <td>{{ record.id }}</td>
+            <td>{{ record.date }}</td>
+            <td>{{ record.heading }}</td>
+            <td><a href="http://127.0.0.1:8000/blogapp/view?id={{ record.id }}">view</a></td>
+            <td><a href="http://127.0.0.1:8000/blogapp/update?id={{ record.id }}">update</a></td>
+            </tr>
+
+        {% endfor %}
+
+        </table>
+        <a href="http://127.0.0.1:8000/blogapp/addblog"><button type="submit">Add new blog</button></a>
+	{% else %}
+             <a class="lead" href="{% url 'login' %}">Log in</a>
+	{% endif %}
+{% endblock content %}
+</body>
+</html>

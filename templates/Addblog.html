@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Blog</title>
+</head>
+<body>
+
+<form method="post" action="http://127.0.0.1:8000/blogapp/addblog/">
+    {% csrf_token %}
+    <span>Heading</span>
+    <input type="text" name="heading"><br>
+    <span>Blog Containt</span><br>
+    <span>Blog:</span><textarea rows="5" cols="50" type="text" name="blog" maxlength="200" placeholder="type your Blog .. length<200"></textarea><br>
+    <button type="submit">Add</button>
+</form>
+
+</body>
+</html>
